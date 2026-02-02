@@ -1,48 +1,45 @@
-/* Reset & Base Styles */
+/* ===== RESET & BASE STYLES ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* ===== VARIABEL WARNA ===== */
 :root {
-    /* === MAIN COLORS === */
+    /* === WARNA HIJAU BOTOL (BACKGROUND) === */
     --primary-color: #0F3D2E;        /* Hijau botol utama */
     --primary-dark: #0A2A20;         /* Hijau botol lebih gelap */
     --primary-light: #1E5B46;        /* Hijau botol muda */
     
-    /* === GOLD ACCENT === */
+    /* === WARNA GOLD (TULISAN/AKSEN) === */
     --secondary-color: #C9A227;      /* Gold elegan */
     --accent-color: #E6C45D;         /* Gold terang */
     --gold-light: #F4E7A7;           /* Gold sangat muda */
     
-    /* === BACKGROUND COLORS === */
-    --bg-primary: #F8F5F0;           /* Cream keemasan */
-    --bg-secondary: #F1ECE0;         /* Cream lebih gelap */
-    --bg-light: #FDFBF7;             /* Cream sangat muda */
+    /* === WARNA NETRAL === */
+    --light-color: #FFFFFF;          /* Putih */
+    --dark-color: #05140E;           /* Hampir hitam */
+    --gray-color: #8FA89D;           /* Abu-abu kehijauan */
+    --light-gray: #E8F1ED;           /* Abu-abu sangat muda */
     
-    /* === NEUTRAL COLORS === */
-    --dark-color: #0B1F17;           /* Hampir hitam kehijauan */
-    --light-color: #F0F7F3;          /* Putih kehijauan */
-    --gray-color: #5A6D65;           /* Abu kehijauan */
-    --light-gray: #D4E0D9;           /* Abu muda kehijauan */
+    /* === WARNA STATUS === */
+    --success-color: #2E7D32;
+    --warning-color: #D4AF37;
+    --info-color: #1F6E8C;
     
-    /* === STATUS COLORS === */
-    --success-color: #2E7D32;        /* Hijau sukses */
-    --warning-color: #D4AF37;        /* Gold klasik */
-    --info-color: #1F6E8C;           /* Biru kehijauan */
-
-    /* === BASIC === */
+    /* === WARNA DASAR === */
     --white: #ffffff;
     --black: #000000;
-
-    /* === EFFECTS === */
-    --shadow: 0 8px 25px rgba(15, 61, 46, 0.18);
-    --shadow-dark: 0 15px 40px rgba(10, 42, 32, 0.3);
+    
+    /* === EFEK === */
+    --shadow: 0 8px 25px rgba(15, 61, 46, 0.3);
+    --shadow-dark: 0 15px 40px rgba(10, 42, 32, 0.5);
     --transition: all 0.3s ease;
     --border-radius: 16px;
 }
 
+/* ===== STYLE DASAR ===== */
 html {
     scroll-behavior: smooth;
 }
@@ -50,11 +47,12 @@ html {
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
-    color: var(--dark-color);
-    background-color: var(--bg-primary);
+    background-color: var(--primary-color); /* Background hijau botol */
+    color: var(--light-color); /* Tulisan putih (default) */
     overflow-x: hidden;
 }
 
+/* ===== CONTAINER & SECTION ===== */
 .container {
     width: 100%;
     max-width: 1200px;
@@ -64,6 +62,7 @@ body {
 
 section {
     padding: 80px 0;
+    background-color: var(--primary-color); /* Background hijau botol */
 }
 
 .section-padding {
@@ -78,43 +77,54 @@ section {
 .section-title {
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
-    color: var(--dark-color);
+    color: var(--secondary-color); /* Judul section berwarna GOLD */
     margin-bottom: 15px;
 }
 
 .section-title span {
-    color: var(--primary-color);
+    color: var(--light-color); /* Span dalam judul berwarna PUTIH */
 }
 
 .section-subtitle {
     font-size: 1.1rem;
-    color: var(--gray-color);
+    color: var(--light-color); /* Subtitle berwarna PUTIH */
     max-width: 600px;
     margin: 0 auto;
+    opacity: 0.9;
 }
 
-/* Typography */
+/* ===== TYPOGRAPHY ===== */
 h1, h2, h3, h4 {
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 15px;
 }
 
+/* Heading: Kombinasi Gold dan Putih */
 h1 {
     font-size: 3.5rem;
+    color: var(--secondary-color); /* H1 berwarna GOLD */
 }
 
 h2 {
     font-size: 2.5rem;
+    color: var(--secondary-color); /* H2 berwarna GOLD */
 }
 
 h3 {
     font-size: 1.8rem;
+    color: var(--light-color); /* H3 berwarna PUTIH */
+}
+
+h4 {
+    font-size: 1.4rem;
+    color: var(--light-color); /* H4 berwarna PUTIH */
 }
 
 p {
     margin-bottom: 20px;
-    color: var(--gray-color);
+    color: var(--light-color); /* Paragraf berwarna PUTIH */
+    opacity: 0.9;
 }
 
 a {
@@ -122,7 +132,7 @@ a {
     color: inherit;
 }
 
-/* Buttons */
+/* ===== BUTTONS ===== */
 .btn-primary, .btn-secondary, .btn-product {
     display: inline-block;
     padding: 12px 30px;
@@ -137,41 +147,41 @@ a {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: var(--white);
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    color: var(--primary-dark); /* Teks gelap untuk kontras dengan gold */
     box-shadow: 0 4px 15px rgba(201, 162, 39, 0.3);
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, var(--primary-dark), #D4AF37);
+    background: linear-gradient(135deg, var(--accent-color), #FFD95A);
+    color: var(--primary-color);
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(15, 61, 46, 0.4);
+    box-shadow: 0 10px 25px rgba(201, 162, 39, 0.5);
 }
 
 .btn-secondary {
-    background-color: var(--gold-light);
-    color: var(--primary-dark);
-    border: 2px solid var(--secondary-color);
+    background-color: transparent;
+    color: var(--light-color); /* PUTIH */
+    border: 2px solid var(--light-color);
 }
 
 .btn-secondary:hover {
-    background-color: var(--secondary-color);
-    color: var(--white);
+    background-color: var(--light-color);
+    color: var(--primary-color); /* Hijau botol saat hover */
     transform: translateY(-3px);
-    border-color: var(--secondary-color);
 }
 
 .btn-product {
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-    color: var(--white);
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    color: var(--primary-dark);
     width: 100%;
     margin-top: 15px;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(15, 61, 46, 0.2);
+    box-shadow: 0 4px 12px rgba(201, 162, 39, 0.2);
 }
 
 .btn-product:hover {
-    background: linear-gradient(135deg, var(--primary-dark), var(--secondary-color));
+    background: linear-gradient(135deg, var(--accent-color), #FFE082);
     transform: translateY(-2px);
 }
 
@@ -190,24 +200,25 @@ a {
     gap: 10px;
     padding: 15px;
     font-size: 1.1rem;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    color: var(--primary-dark);
 }
 
-/* Header & Navigation */
+/* ===== HEADER & NAVIGATION ===== */
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    background-color: var(--bg-light);
-    box-shadow: 0 2px 15px rgba(15, 61, 46, 0.1);
+    background-color: var(--primary-dark); /* Header hijau gelap */
+    box-shadow: 0 2px 15px rgba(15, 61, 46, 0.3);
     transition: var(--transition);
 }
 
 .navbar {
     padding: 20px 0;
-    background-color: var(--bg-light);
+    background-color: var(--primary-dark);
 }
 
 .nav-container {
@@ -220,11 +231,7 @@ header {
     font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
     font-weight: 700;
-    color: var(--primary-dark);
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--secondary-color); /* Logo berwarna GOLD */
 }
 
 .nav-menu {
@@ -237,11 +244,11 @@ header {
     font-weight: 500;
     transition: var(--transition);
     position: relative;
-    color: var(--primary-dark);
+    color: var(--light-color); /* Link navigation PUTIH */
 }
 
 .nav-link:hover {
-    color: var(--secondary-color);
+    color: var(--secondary-color); /* GOLD saat hover */
 }
 
 .nav-link::after {
@@ -251,7 +258,7 @@ header {
     left: 20px;
     right: 20px;
     height: 2px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
     transform: scaleX(0);
     transition: transform 0.3s ease;
 }
@@ -273,17 +280,17 @@ header {
     display: block;
     width: 25px;
     height: 3px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: var(--light-color); /* Garis hamburger PUTIH */
     margin: 3px 0;
     transition: var(--transition);
     border-radius: 2px;
 }
 
-/* HERO SECTION */
+/* ===== HERO SECTION ===== */
 .hero {
     padding-top: 150px;
     padding-bottom: 150px;
-    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--gold-light) 100%);
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
     position: relative;
     overflow: hidden;
 }
@@ -296,7 +303,7 @@ header {
     width: 100%;
     height: 100%;
     background: radial-gradient(circle at 20% 80%, rgba(201, 162, 39, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(15, 61, 46, 0.1) 0%, transparent 50%);
+                radial-gradient(circle at 80% 20%, rgba(15, 61, 46, 0.2) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -327,14 +334,14 @@ header {
 
 .hero-badge {
     display: inline-block;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: var(--white);
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    color: var(--primary-dark); /* Teks gelap di atas gold */
     padding: 10px 25px;
     border-radius: 50px;
     font-weight: 600;
     font-size: 0.9rem;
     margin-bottom: 25px;
-    box-shadow: 0 5px 15px rgba(15, 61, 46, 0.3);
+    box-shadow: 0 5px 15px rgba(201, 162, 39, 0.3);
     animation: pulse 2s infinite;
 }
 
@@ -346,19 +353,15 @@ header {
 
 .hero h1 {
     font-family: 'Playfair Display', serif;
-    color: var(--dark-color);
+    color: var(--secondary-color); /* Judul hero GOLD */
     margin-bottom: 15px;
     font-size: 3.8rem;
     line-height: 1.1;
-    background: linear-gradient(135deg, var(--primary-dark), var(--secondary-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
 }
 
 .hero-subtitle {
     font-size: 2.2rem;
-    color: var(--primary-color);
+    color: var(--light-color); /* Subtitle PUTIH */
     margin-bottom: 25px;
     font-weight: 700;
     position: relative;
@@ -372,7 +375,7 @@ header {
     left: 0;
     width: 80px;
     height: 4px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
     border-radius: 2px;
 }
 
@@ -380,8 +383,9 @@ header {
     font-size: 1.2rem;
     margin-bottom: 35px;
     max-width: 500px;
-    color: var(--gray-color);
+    color: var(--light-color); /* Paragraf PUTIH */
     line-height: 1.7;
+    opacity: 0.9;
 }
 
 .hero-buttons {
@@ -402,25 +406,26 @@ header {
 }
 
 .hero-buttons .btn-primary {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    color: var(--primary-dark);
     border: none;
-    box-shadow: 0 8px 20px rgba(15, 61, 46, 0.4);
+    box-shadow: 0 8px 20px rgba(201, 162, 39, 0.4);
 }
 
 .hero-buttons .btn-primary:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(15, 61, 46, 0.5);
+    box-shadow: 0 15px 30px rgba(201, 162, 39, 0.6);
 }
 
 .hero-buttons .btn-secondary {
-    background: var(--gold-light);
-    border: 2px solid var(--secondary-color);
-    color: var(--primary-dark);
+    background: transparent;
+    border: 2px solid var(--light-color);
+    color: var(--light-color);
 }
 
 .hero-buttons .btn-secondary:hover {
-    background: var(--secondary-color);
-    color: var(--bg-light);
+    background: var(--light-color);
+    color: var(--primary-color);
     transform: translateY(-5px);
 }
 
@@ -434,17 +439,19 @@ header {
     display: flex;
     align-items: center;
     gap: 10px;
-    background: var(--bg-light);
+    background: rgba(255, 255, 255, 0.1); /* Background putih transparan */
     padding: 12px 20px;
     border-radius: 10px;
     box-shadow: var(--shadow);
     transition: var(--transition);
-    border: 1px solid rgba(201, 162, 39, 0.2);
+    border: 1px solid rgba(201, 162, 39, 0.3);
+    backdrop-filter: blur(10px);
 }
 
 .hero-features .feature:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(15, 61, 46, 0.2);
+    box-shadow: 0 10px 25px rgba(201, 162, 39, 0.3);
+    background: rgba(255, 255, 255, 0.15);
     border-color: var(--secondary-color);
 }
 
@@ -455,7 +462,7 @@ header {
 
 .hero-features .feature span {
     font-weight: 600;
-    color: var(--primary-dark);
+    color: var(--light-color);
 }
 
 .hero-image {
@@ -465,7 +472,7 @@ header {
     box-shadow: var(--shadow-dark);
     position: relative;
     animation: float 6s ease-in-out infinite;
-    border: 5px solid var(--bg-light);
+    border: 5px solid rgba(255, 255, 255, 0.2);
 }
 
 @keyframes float {
@@ -490,24 +497,25 @@ header {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(to top, rgba(15, 61, 46, 0.9), transparent);
+    background: linear-gradient(to top, rgba(15, 61, 46, 0.95), transparent);
     padding: 30px;
-    color: var(--white);
+    color: var(--light-color);
 }
 
 .overlay-text h4 {
     font-size: 1.5rem;
     margin-bottom: 5px;
-    color: var(--gold-light);
+    color: var(--secondary-color); /* GOLD */
 }
 
 .overlay-text p {
-    color: rgba(244, 231, 167, 0.9);
+    color: var(--light-color); /* PUTIH */
     margin: 0;
     font-size: 1rem;
+    opacity: 0.9;
 }
 
-/* About Section */
+/* ===== ABOUT SECTION ===== */
 .about-content {
     display: flex;
     align-items: center;
@@ -520,7 +528,7 @@ header {
     overflow: hidden;
     box-shadow: var(--shadow);
     position: relative;
-    border: 5px solid var(--bg-light);
+    border: 5px solid rgba(255, 255, 255, 0.2);
 }
 
 .about-image::before {
@@ -530,10 +538,10 @@ header {
     left: 20px;
     right: -20px;
     bottom: -20px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
     border-radius: var(--border-radius);
     z-index: -1;
-    opacity: 0.15;
+    opacity: 0.2;
 }
 
 .about-image img {
@@ -546,13 +554,13 @@ header {
     position: absolute;
     bottom: 20px;
     left: 20px;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-    color: var(--white);
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    color: var(--primary-dark);
     padding: 12px 25px;
     border-radius: 50px;
     font-weight: 600;
     font-size: 1rem;
-    box-shadow: 0 5px 15px rgba(15, 61, 46, 0.3);
+    box-shadow: 0 5px 15px rgba(201, 162, 39, 0.3);
 }
 
 .about-text {
@@ -569,12 +577,13 @@ header {
 .feature {
     text-align: center;
     padding: 30px 20px;
-    background: linear-gradient(135deg, var(--bg-light), var(--gold-light));
+    background: rgba(255, 255, 255, 0.1); /* Background putih transparan */
     border-radius: 15px;
     transition: var(--transition);
-    border: 2px solid rgba(201, 162, 39, 0.2);
+    border: 2px solid rgba(201, 162, 39, 0.3);
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(10px);
 }
 
 .feature::before {
@@ -584,18 +593,19 @@ header {
     left: 0;
     width: 100%;
     height: 5px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
 }
 
 .feature:hover {
     transform: translateY(-10px);
     box-shadow: var(--shadow-dark);
+    background: rgba(255, 255, 255, 0.15);
     border-color: var(--secondary-color);
 }
 
 .feature-icon {
     font-size: 2.8rem;
-    color: var(--secondary-color);
+    color: var(--secondary-color); /* Ikon GOLD */
     margin-bottom: 20px;
     display: inline-block;
     padding: 20px;
@@ -606,12 +616,18 @@ header {
 .feature h4 {
     font-size: 1.2rem;
     margin-bottom: 10px;
-    color: var(--primary-dark);
+    color: var(--light-color); /* PUTIH */
 }
 
-/* Product Section */
+.feature p {
+    color: var(--light-color); /* PUTIH */
+    opacity: 0.8;
+    font-size: 0.95rem;
+}
+
+/* ===== PRODUCT SECTION ===== */
 .product {
-    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--gold-light) 100%);
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
     position: relative;
 }
 
@@ -622,8 +638,8 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 10% 10%, rgba(201, 162, 39, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 90% 90%, rgba(15, 61, 46, 0.08) 0%, transparent 50%);
+    background: radial-gradient(circle at 10% 10%, rgba(201, 162, 39, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 90% 90%, rgba(15, 61, 46, 0.2) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -637,15 +653,16 @@ header {
 
 .category-btn {
     padding: 12px 25px;
-    background-color: var(--bg-light);
-    border: 2px solid var(--light-gray);
-    color: var(--primary-dark);
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: var(--light-color); /* PUTIH */
     border-radius: 50px;
     font-weight: 600;
     cursor: pointer;
     transition: var(--transition);
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(10px);
 }
 
 .category-btn::before {
@@ -655,16 +672,16 @@ header {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
     transition: var(--transition);
     z-index: -1;
 }
 
 .category-btn.active, .category-btn:hover {
-    color: var(--bg-light);
-    border-color: var(--primary-color);
+    color: var(--primary-dark);
+    border-color: var(--secondary-color);
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(15, 61, 46, 0.25);
+    box-shadow: 0 10px 20px rgba(201, 162, 39, 0.3);
 }
 
 .category-btn.active::before, .category-btn:hover::before {
@@ -678,18 +695,20 @@ header {
 }
 
 .product-card {
-    background-color: var(--bg-light);
+    background-color: rgba(255, 255, 255, 0.1); /* Background putih transparan */
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: var(--transition);
     position: relative;
-    border: 2px solid rgba(201, 162, 39, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
 }
 
 .product-card:hover {
     transform: translateY(-15px);
     box-shadow: var(--shadow-dark);
+    background-color: rgba(255, 255, 255, 0.15);
     border-color: var(--secondary-color);
 }
 
@@ -697,7 +716,7 @@ header {
     position: absolute;
     top: 15px;
     left: 15px;
-    background: linear-gradient(135deg, var(--accent-color), #D4AF37);
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
     color: var(--primary-dark);
     padding: 8px 20px;
     border-radius: 50px;
@@ -710,7 +729,7 @@ header {
 .product-image {
     height: 200px;
     overflow: hidden;
-    background: linear-gradient(135deg, var(--primary-light), var(--gold-light));
+    background: linear-gradient(135deg, var(--primary-light), rgba(201, 162, 39, 0.2));
 }
 
 .product-image img {
@@ -726,29 +745,31 @@ header {
 
 .product-info {
     padding: 25px;
-    background: var(--bg-light);
+    background: transparent;
 }
 
 .product-info h3 {
-    color: var(--primary-dark);
+    color: var(--light-color); /* PUTIH */
     margin-bottom: 10px;
 }
 
 .product-price {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--secondary-color);
+    color: var(--secondary-color); /* GOLD */
     margin: 10px 0;
 }
 
 .product-price span {
     font-size: 1rem;
-    color: var(--gray-color);
+    color: var(--light-color); /* PUTIH */
+    opacity: 0.8;
 }
 
 .product-old-price {
     font-size: 1rem;
-    color: var(--gray-color);
+    color: var(--light-color); /* PUTIH */
+    opacity: 0.6;
     text-decoration: line-through;
     margin-bottom: 10px;
 }
@@ -757,23 +778,39 @@ header {
     display: flex;
     align-items: center;
     gap: 5px;
-    color: var(--secondary-color);
+    color: var(--secondary-color); /* GOLD untuk bintang */
     margin: 10px 0;
 }
 
 .product-rating span {
-    color: var(--primary-dark);
+    color: var(--light-color); /* PUTIH untuk teks rating */
     margin-left: 5px;
+    opacity: 0.9;
+}
+
+.product-info p {
+    color: var(--light-color); /* PUTIH */
+    opacity: 0.8;
+    font-size: 0.95rem;
 }
 
 .combo-card {
     border: 3px solid var(--secondary-color);
-    background: linear-gradient(135deg, var(--bg-light), #FFF9E6);
+    background: rgba(255, 255, 255, 0.15);
 }
 
-/* Testimonial Section */
+/* ===== TESTIMONIAL SECTION (BACKGROUND PUTIH) ===== */
 .testimonial {
-    background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-secondary) 100%);
+    background-color: var(--light-color); /* BACKGROUND PUTIH */
+    color: var(--primary-dark); /* Teks hijau gelap */
+}
+
+.testimonial .section-title {
+    color: var(--primary-color); /* Judul hijau botol */
+}
+
+.testimonial .section-subtitle {
+    color: var(--primary-dark); /* Subtitle hijau gelap */
 }
 
 .testimonial-slider {
@@ -797,13 +834,14 @@ header {
 }
 
 .testimonial-content {
-    background-color: var(--bg-light);
+    background-color: var(--light-color); /* Background PUTIH */
     padding: 50px;
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
+    box-shadow: 0 10px 30px rgba(15, 61, 46, 0.1);
     position: relative;
     text-align: center;
-    border-top: 5px solid var(--secondary-color);
+    border-top: 5px solid var(--secondary-color); /* Border top gold */
+    color: var(--primary-dark); /* Teks hijau gelap */
 }
 
 .testimonial-content::before {
@@ -812,12 +850,12 @@ header {
     top: 20px;
     left: 30px;
     font-size: 6rem;
-    color: rgba(201, 162, 39, 0.1);
+    color: rgba(201, 162, 39, 0.2);
     font-family: 'Playfair Display', serif;
 }
 
 .testimonial-rating {
-    color: var(--secondary-color);
+    color: var(--secondary-color); /* Bintang GOLD */
     margin-bottom: 20px;
     font-size: 1.2rem;
 }
@@ -828,7 +866,8 @@ header {
     margin-bottom: 30px;
     position: relative;
     padding: 0 20px;
-    color: var(--primary-dark);
+    color: var(--primary-dark); /* Teks hijau gelap */
+    opacity: 0.9;
 }
 
 .testimonial-content p::before,
@@ -862,18 +901,19 @@ header {
     height: 60px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid var(--secondary-color);
+    border: 3px solid var(--secondary-color); /* Border gold */
 }
 
 .testimonial-author h4 {
     margin-bottom: 5px;
-    color: var(--primary-dark);
+    color: var(--primary-color); /* Nama hijau botol */
 }
 
 .testimonial-author p {
     margin-bottom: 0;
-    color: var(--gray-color);
+    color: var(--primary-dark); /* Jabatan hijau gelap */
     font-size: 0.9rem;
+    opacity: 0.8;
 }
 
 .slider-controls {
@@ -885,8 +925,8 @@ header {
 }
 
 .slider-btn {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: var(--bg-light);
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    color: var(--primary-dark);
     border: none;
     width: 40px;
     height: 40px;
@@ -896,11 +936,11 @@ header {
     align-items: center;
     justify-content: center;
     transition: var(--transition);
-    box-shadow: 0 4px 10px rgba(15, 61, 46, 0.2);
+    box-shadow: 0 4px 10px rgba(201, 162, 39, 0.2);
 }
 
 .slider-btn:hover {
-    background: linear-gradient(135deg, var(--primary-dark), var(--accent-color));
+    background: linear-gradient(135deg, var(--accent-color), #FFE082);
     transform: translateY(-3px);
 }
 
@@ -913,19 +953,19 @@ header {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: var(--light-gray);
+    background-color: rgba(15, 61, 46, 0.2);
     cursor: pointer;
     transition: var(--transition);
-    border: 2px solid var(--bg-light);
+    border: 2px solid var(--light-color);
 }
 
 .dot.active {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
     transform: scale(1.2);
     border-color: var(--secondary-color);
 }
 
-/* Contact Section */
+/* ===== CONTACT SECTION ===== */
 .contact-content {
     display: flex;
     gap: 50px;
@@ -941,18 +981,19 @@ header {
 }
 
 .info-box, .location-box {
-    background-color: var(--bg-light);
+    background-color: rgba(255, 255, 255, 0.1); /* Background putih transparan */
     padding: 30px;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
-    border: 2px solid rgba(201, 162, 39, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
 }
 
 .info-box h3, .location-box h3 {
-    color: var(--primary-color);
+    color: var(--secondary-color); /* GOLD */
     margin-bottom: 20px;
     padding-bottom: 10px;
-    border-bottom: 2px solid var(--gold-light);
+    border-bottom: 2px solid var(--accent-color);
 }
 
 .info-item {
@@ -968,18 +1009,24 @@ header {
 
 .info-item i {
     font-size: 1.2rem;
-    color: var(--secondary-color);
+    color: var(--secondary-color); /* Ikon GOLD */
     margin-top: 5px;
 }
 
 .info-item h4 {
     margin-bottom: 5px;
     font-size: 1.1rem;
-    color: var(--primary-dark);
+    color: var(--light-color); /* PUTIH */
+}
+
+.info-item p {
+    color: var(--light-color); /* PUTIH */
+    opacity: 0.9;
+    margin-bottom: 0;
 }
 
 .map-placeholder {
-    background: linear-gradient(135deg, var(--gold-light), var(--bg-light));
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(15, 61, 46, 0.2));
     padding: 30px;
     border-radius: 10px;
     text-align: center;
@@ -993,21 +1040,27 @@ header {
     margin-bottom: 15px;
 }
 
+.map-placeholder p {
+    color: var(--light-color);
+    margin-bottom: 0;
+}
+
 .contact-form {
     flex: 1;
     min-width: 300px;
-    background-color: var(--bg-light);
+    background-color: rgba(255, 255, 255, 0.1); /* Background putih transparan */
     padding: 30px;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
-    border: 2px solid rgba(201, 162, 39, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
 }
 
 .contact-form h3 {
-    color: var(--primary-color);
+    color: var(--secondary-color); /* GOLD */
     margin-bottom: 25px;
     padding-bottom: 10px;
-    border-bottom: 2px solid var(--gold-light);
+    border-bottom: 2px solid var(--accent-color);
 }
 
 .form-group {
@@ -1018,7 +1071,7 @@ header {
     display: block;
     margin-bottom: 8px;
     font-weight: 500;
-    color: var(--primary-dark);
+    color: var(--light-color); /* PUTIH */
 }
 
 .form-group input,
@@ -1026,12 +1079,13 @@ header {
 .form-group textarea {
     width: 100%;
     padding: 15px;
-    border: 2px solid var(--light-gray);
+    border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 8px;
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     transition: var(--transition);
-    background-color: var(--white);
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--primary-dark);
 }
 
 .form-group input:focus,
@@ -1039,7 +1093,8 @@ header {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--secondary-color);
-    box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.1);
+    box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.2);
+    background-color: var(--light-color);
 }
 
 .quantity-selector {
@@ -1052,8 +1107,8 @@ header {
 .qty-btn {
     width: 40px;
     height: 40px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: var(--white);
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    color: var(--primary-dark);
     border: none;
     border-radius: 50%;
     font-size: 1.2rem;
@@ -1062,11 +1117,11 @@ header {
     align-items: center;
     justify-content: center;
     transition: var(--transition);
-    box-shadow: 0 4px 8px rgba(15, 61, 46, 0.2);
+    box-shadow: 0 4px 8px rgba(201, 162, 39, 0.2);
 }
 
 .qty-btn:hover {
-    background: linear-gradient(135deg, var(--primary-dark), var(--accent-color));
+    background: linear-gradient(135deg, var(--accent-color), #FFE082);
     transform: scale(1.1);
 }
 
@@ -1074,9 +1129,9 @@ header {
     width: 70px;
     text-align: center;
     padding: 10px;
-    border: 2px solid var(--light-gray);
+    border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 5px;
-    background-color: var(--white);
+    background-color: rgba(255, 255, 255, 0.9);
     font-weight: 600;
     color: var(--primary-dark);
 }
@@ -1087,7 +1142,7 @@ header {
 }
 
 .order-summary {
-    background: linear-gradient(135deg, var(--gold-light), var(--bg-light));
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(15, 61, 46, 0.2));
     padding: 25px;
     border-radius: 10px;
     margin: 25px 0;
@@ -1096,14 +1151,14 @@ header {
 
 .order-summary h4 {
     margin-bottom: 15px;
-    color: var(--primary-dark);
+    color: var(--secondary-color); /* GOLD */
 }
 
 .summary-item {
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
-    color: var(--primary-dark);
+    color: var(--light-color); /* PUTIH */
 }
 
 .summary-total {
@@ -1114,13 +1169,13 @@ header {
     border-top: 2px solid var(--secondary-color);
     font-weight: 700;
     font-size: 1.2rem;
-    color: var(--primary-dark);
+    color: var(--secondary-color); /* GOLD */
 }
 
-/* Footer */
+/* ===== FOOTER ===== */
 footer {
-    background: linear-gradient(135deg, var(--primary-dark), #0F3D2E);
-    color: var(--gold-light);
+    background: linear-gradient(135deg, var(--primary-dark), #0A2A20);
+    color: var(--light-color);
     padding: 70px 0 20px;
 }
 
@@ -1131,13 +1186,14 @@ footer {
     margin-bottom: 50px;
 }
 
-/* ===== ABOUT ===== */
+/* === ABOUT === */
 .footer-about p {
-    color: #E6D9A7;
+    color: var(--accent-color); /* Gold terang */
     margin: 20px 0;
+    opacity: 0.9;
 }
 
-/* ===== SOCIAL ===== */
+/* === SOCIAL === */
 .social-links {
     display: flex;
     gap: 15px;
@@ -1164,16 +1220,16 @@ footer {
     box-shadow: 0 5px 15px rgba(230, 196, 93, 0.3);
 }
 
-/* ===== TITLES ===== */
+/* === TITLES === */
 .footer-links h4,
 .footer-contact h4,
 .footer-newsletter h4 {
     font-size: 1.2rem;
     margin-bottom: 20px;
-    color: var(--accent-color);
+    color: var(--secondary-color); /* GOLD */
 }
 
-/* ===== LINKS ===== */
+/* === LINKS === */
 .footer-links ul {
     list-style: none;
 }
@@ -1183,19 +1239,21 @@ footer {
 }
 
 .footer-links a {
-    color: #C9E6D4;
+    color: var(--accent-color); /* Gold terang */
     transition: var(--transition);
     padding: 5px 0;
     display: inline-block;
+    opacity: 0.9;
 }
 
 .footer-links a:hover {
-    color: var(--accent-color);
+    color: var(--light-color); /* PUTIH saat hover */
     padding-left: 8px;
     transform: translateX(5px);
+    opacity: 1;
 }
 
-/* ===== CONTACT ===== */
+/* === CONTACT === */
 .footer-contact .contact-item {
     display: flex;
     align-items: flex-start;
@@ -1209,14 +1267,16 @@ footer {
 }
 
 .footer-contact .contact-item p {
-    color: #E6D9A7;
+    color: var(--accent-color);
     margin-bottom: 0;
+    opacity: 0.9;
 }
 
-/* ===== NEWSLETTER ===== */
+/* === NEWSLETTER === */
 .footer-newsletter p {
-    color: #E6D9A7;
+    color: var(--accent-color);
     margin-bottom: 20px;
+    opacity: 0.9;
 }
 
 .footer-newsletter form {
@@ -1230,12 +1290,13 @@ footer {
     border: 1px solid rgba(230, 196, 93, 0.3);
     border-radius: 6px;
     background-color: rgba(15, 61, 46, 0.5);
-    color: var(--gold-light);
+    color: var(--light-color);
     font-family: 'Poppins', sans-serif;
 }
 
 .footer-newsletter input::placeholder {
-    color: #B7C7C0;
+    color: var(--accent-color);
+    opacity: 0.7;
 }
 
 .footer-newsletter button {
@@ -1255,13 +1316,14 @@ footer {
     transform: translateY(-2px);
 }
 
-/* ===== BOTTOM ===== */
+/* === BOTTOM === */
 .footer-bottom {
     text-align: center;
     padding-top: 20px;
     border-top: 1px solid rgba(230, 196, 93, 0.1);
-    color: #B7C7C0;
+    color: var(--accent-color);
     font-size: 0.9rem;
+    opacity: 0.8;
 }
 
 .footer-bottom i {
@@ -1269,7 +1331,7 @@ footer {
     margin: 0 5px;
 }
 
-/* Modal */
+/* ===== MODAL ===== */
 .modal {
     display: none;
     position: fixed;
@@ -1277,14 +1339,14 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(15, 61, 46, 0.9);
+    background-color: rgba(15, 61, 46, 0.95);
     z-index: 1100;
     align-items: center;
     justify-content: center;
 }
 
 .modal-content {
-    background: linear-gradient(135deg, var(--bg-light), var(--gold-light));
+    background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
     padding: 40px;
     border-radius: var(--border-radius);
     max-width: 500px;
@@ -1293,7 +1355,7 @@ footer {
     position: relative;
     animation: modalFade 0.3s ease;
     border: 3px solid var(--secondary-color);
-    box-shadow: 0 20px 50px rgba(15, 61, 46, 0.5);
+    box-shadow: 0 20px 50px rgba(15, 61, 46, 0.7);
 }
 
 @keyframes modalFade {
@@ -1309,7 +1371,7 @@ footer {
     cursor: pointer;
     color: var(--secondary-color);
     transition: var(--transition);
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(201, 162, 39, 0.1);
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -1328,15 +1390,20 @@ footer {
     font-size: 4rem;
     color: var(--secondary-color);
     margin-bottom: 20px;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
 .modal h3 {
-    color: var(--primary-dark);
+    color: var(--light-color); /* PUTIH */
     margin-bottom: 15px;
+}
+
+.modal p {
+    color: var(--light-color); /* PUTIH */
+    opacity: 0.9;
 }
 
 .modal-actions {
@@ -1349,7 +1416,7 @@ footer {
     flex: 1;
 }
 
-/* Responsive Design */
+/* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 992px) {
     h1 {
         font-size: 3rem;
@@ -1407,12 +1474,12 @@ footer {
         top: 80px;
         right: -100%;
         flex-direction: column;
-        background-color: var(--bg-light);
+        background-color: var(--primary-dark);
         width: 100%;
         max-width: 300px;
         height: calc(100vh - 80px);
         padding: 40px 20px;
-        box-shadow: -5px 0 15px rgba(15, 61, 46, 0.1);
+        box-shadow: -5px 0 15px rgba(15, 61, 46, 0.3);
         transition: right 0.3s ease;
         border-left: 3px solid var(--secondary-color);
     }
@@ -1423,12 +1490,12 @@ footer {
     
     .nav-link {
         padding: 15px 0;
-        border-bottom: 1px solid rgba(201, 162, 39, 0.1);
+        border-bottom: 1px solid rgba(201, 162, 39, 0.2);
     }
     
     .hamburger.active span:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
-        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        background: var(--light-color);
     }
     
     .hamburger.active span:nth-child(2) {
@@ -1437,7 +1504,7 @@ footer {
     
     .hamburger.active span:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -6px);
-        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        background: var(--light-color);
     }
     
     .section-title {
@@ -1481,7 +1548,7 @@ footer {
     }
 }
 
-/* Styling untuk form pesanan */
+/* ===== STYLING TAMBAHAN ===== */
 .form-group select:invalid {
     color: var(--gray-color);
 }
@@ -1490,15 +1557,52 @@ footer {
     color: var(--primary-dark);
 }
 
-/* Styling khusus untuk quantity selector */
 .quantity-selector input[type="number"] {
     font-weight: 600;
     font-size: 1.1rem;
     color: var(--primary-dark);
 }
 
-/* Styling untuk order summary */
-.summary-total {
+/* Animasi fade-in untuk elemen */
+.fade-in {
+    animation: fadeIn 1s ease;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--primary-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--secondary-color), var(--accent-color));
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(var(--accent-color), #FFE082);
+}
+
+/* Selection color */
+::selection {
+    background-color: var(--secondary-color);
     color: var(--primary-dark);
-    font-size: 1.3rem;
+}
+
+/* Text highlight */
+.highlight {
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+/* Card text yang membutuhkan kontras lebih */
+.card-text-light {
+    color: var(--light-color) !important;
+}
+
+.card-text-gold {
+    color: var(--secondary-color) !important;
 }
